@@ -37,11 +37,11 @@
   .hero-glow2 { position: absolute; bottom: 10%; left: 0; width: 350px; height: 350px; background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 65%); pointer-events: none; }
   .hero-content { max-width: 780px; position: relative; }
 
-  .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1rem; border: 1px solid var(--border); background: rgba(201,168,76,0.05); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 1rem; border: 1px solid var(--border); background: rgba(201,168,76,0.05); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
   .badge-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.08; margin-bottom: 1.8rem; opacity: 0; animation: fadeUp 0.7s ease forwards 0.3s; }
+  .hero-title { font-family: "Cormorant Garamond", serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.08; margin-bottom: 1.8rem; animation: fadeUp 0.9s ease forwards; }
   .hero-title em { font-style: italic; color: var(--gold); }
   .typing-cursor::after { content: '|'; color: var(--gold); animation: blink 0.8s infinite; margin-left: 2px; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -177,7 +177,7 @@
   <div class="hero-glow2"></div>
   <div class="hero-content">
     <div class="hero-badge"><span class="badge-dot"></span>Available for new projects</div>
-    <h1 class="hero-title" id="typing-title"></h1>
+    <h1 class="hero-title">Websites built with<br>strategy, not just<br><em>code.</em></h1>
     <p class="hero-sub">
       I'm Devanshi — a <strong>Product Manager turned Web Consultant</strong> based in Mumbai. With 3+ years in product & tech and a Computer Engineering background, I build websites designed around your business goals, not just your brief.
     </p>
@@ -299,7 +299,7 @@
     <div class="contact-grid">
       <div class="contact-left">
         <h3>Tell me about your project and I'll get back to you within 24 hours.</h3>
-        <div class="contact-detail"><div class="contact-icon">✉</div><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e7a7b687f706d7677737b766a7f2a2e2a5e79737f7772307d7173">[email&#160;protected]</a></span></div>
+        <div class="contact-detail"><div class="contact-icon">✉</div><span>devanshimehta404&#64;gmail&#46;com</span></div>
         <div class="contact-detail"><div class="contact-icon">⌖</div><span>Mumbai · Available globally</span></div>
         <div class="contact-note">Not sure which package is right for you? Just describe your business and I'll recommend what makes sense — no commitment needed.</div>
       </div>
@@ -325,40 +325,10 @@
   <div>© 2025 · Web Consultant & Product Strategist · Mumbai</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // TYPING EFFECT
-  const lines = ['Websites built with', 'strategy, not just', 'code.'];
-  const typingEl = document.getElementById('typing-title');
-  let lineIndex = 0, charIndex = 0;
-
-  function type() {
-    if (lineIndex >= lines.length) {
-      typingEl.classList.remove('typing-cursor');
-      return;
-    }
-    const currentLine = lines[lineIndex];
-    if (charIndex <= currentLine.length) {
-      let html = '';
-      for (let i = 0; i < lineIndex; i++) {
-        html += (i === lines.length - 1) ? '<em>' + lines[i] + '</em><br>' : lines[i] + '<br>';
-      }
-      const partial = currentLine.slice(0, charIndex);
-      html += (lineIndex === lines.length - 1) ? '<em>' + partial + '</em>' : partial;
-      typingEl.innerHTML = html;
-      charIndex++;
-      setTimeout(type, 55);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(type, 220);
-    }
-  }
-
-  setTimeout(() => {
-    typingEl.style.opacity = '1';
-    typingEl.classList.add('typing-cursor');
-    type();
-  }, 600);
+<script>
+  // Render email safely
+  const u = 'devanshimehta404', d = 'gmail.com';
+  document.getElementById('contact-email').textContent = u + '@' + d;
 
   // SCROLL REVEAL — trigger immediately if already in view
   const revealObserver = new IntersectionObserver((entries) => {
